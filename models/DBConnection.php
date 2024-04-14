@@ -15,19 +15,24 @@ class DBConnection
         }
     }
 
-    public function getUsersWithVideo()
+    public function getPosts()
     {
         // Prepare statement to prevent SQL injection
-        $stmt = $this->conn->prepare("SELECT U.id
-        , U.username
-        , COUNT(M.path) as totalVideos
-        FROM `users` U
-        JOIN `medias` M ON M.user_id = U.id
-        WHERE M.type = 'Video'
-        GROUP BY U.id
-        , U.username
-        ORDER BY totalVideos DESC
-        , U.id;");
+        $stmt = $this->conn->prepare("SELECT      P.id
+        ,           P.title
+        ,           P.date
+        ,           P.tags
+        ,           U.username
+        ,           COUNT(L.post_id) AS likes
+        FROM        `posts` P
+        LEFT JOIN   `likes` L ON L.post_id = P.id
+        LEFT JOIN   `users` U ON U.id = P.user_id
+        GROUP BY	P.id
+        ,           P.title
+        ,           P.date
+        ,           P.tags
+        ,           U.username
+        ORDER BY 	P.date DESC;");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

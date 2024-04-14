@@ -24,7 +24,7 @@ ORDER BY P.id;
 
 <hr>
 
-### 3-Conta il numero di like per ogni post (175-con post non più esistenti in `Posts`, 152-con post esistenti)
+### 3-Conta il numero di like per ogni post (175-con post non più esistenti in `Posts`, 152-con post esistenti, 165-partendo dalla tabella `Posts`)
 
 SELECT L.post_id
 , P.title
@@ -45,6 +45,22 @@ GROUP BY L.post_id
 , P.title
 ORDER BY totalLikes DESC
 , L.post_id;
+
+SELECT P.id
+, P.title
+, P.date
+, P.tags
+, U.username
+, COUNT(L.post_id) AS likes
+FROM `posts` P
+LEFT JOIN `likes` L ON L.post_id = P.id
+LEFT JOIN `users` U ON U.id = P.user_id
+GROUP BY P.id
+, P.title
+, P.date
+, P.tags
+, U.username
+ORDER BY P.date DESC
 
 <hr>
 
