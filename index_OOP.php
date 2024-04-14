@@ -2,8 +2,8 @@
 require_once __DIR__ . '/models/Post.php';
 require_once __DIR__ . '/models/Media.php';
 
-$post1 = new Post(1, 'Primo post', new DateTime(), 15, 'Gianluca B.', ['tag1, tag2'], ['photo', 'video']);
-$post2 = new Post(2, 'Secondo post', new DateTime(), 7, 'Luigi M.', ['tagn, tagn+1'], ['video']);
+$post1 = new Post(1, 'Primo post', new DateTime(), 15, 'Gianluca B.', ['milestone', 'laravel'], ['photo', 'video']);
+$post2 = new Post(2, 'Secondo post', new DateTime(), 7, 'Luigi M.', ['tutor', 'correzione'], ['video']);
 
 $posts = [$post1, $post2];
 ?>

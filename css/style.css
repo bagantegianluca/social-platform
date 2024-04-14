@@ -45,7 +45,7 @@ hr {
     top: 0;
     transform: translateY(-50%);
     background: #00308F;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     padding: .25rem .5rem;
     font-size: .6rem;
@@ -54,4 +54,18 @@ hr {
 .card-footer {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.tag::before {
+    content: "#";
+}
+
+.tag {
+    border-radius: 5px;
+    background: gray;
+    color: white;
+    font-size: .75rem;
+    font-weight: bold;
+    padding: 0.2rem .5rem;
 }

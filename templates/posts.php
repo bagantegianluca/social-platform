@@ -12,6 +12,10 @@
                             <div><i class="fa-regular fa-user"></i> <?= $post['username'] ?></div>
                             <div><i class="fa-regular fa-thumbs-up"></i> <?= $post['likes'] ?></div>
                         </div>
+                        <?php $post['tags'] = json_decode($post['tags'], true); ?>
+                        <?php foreach ($post['tags'] as $tag) : ?>
+                            <span class="tag"><?= $tag ?></span>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
