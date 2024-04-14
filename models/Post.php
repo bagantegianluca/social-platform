@@ -1,11 +1,11 @@
 <?php
 class Post
 {
-    public function __construct(public int $id, public string $title, public $date, public int $likes, public array $username, public array $tags, public array $media)
+    public function __construct(public int $id, public string $title, public DateTime $date, public int $likes, public string $username, public array $tags, public array $media)
     {
         $this->id = $id;
         $this->title = $title;
-        $this->date = new DateTime($date);
+        $this->date = $date;
         $this->likes = $likes;
         $this->username = $username;
         $this->tags = $tags;
